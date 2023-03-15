@@ -13,3 +13,9 @@ body {
     color: #fff;
     min-height: 100vh;
 }
+
+.timers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

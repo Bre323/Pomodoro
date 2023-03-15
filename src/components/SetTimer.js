@@ -2,20 +2,22 @@ import React from "react";
 import "../styles/SetTimer.css";
 
 
-const SetTimer = () => {
+const SetTimer = ({ title, count, handleDecrease, handleIncrease }) => {
+    const id = title.toLowerCase
+
     return (
         <div className="timer-container">
-            <h2>Timer Length</h2>
+            <h2 id={`${id}-label`}>{title} Length</h2>
 
             <div className="buttons-wrapper">
-                <button>
-                    <i className="fas fa-minus" />
+                <button id={`${id}-decrement`} onClick={handleDecrease}>
+                    <i className="fa fa-minus" />
                 </button>
 
-                <span>00</span>
+                <span id={`${id}-length`}>{count}</span>
 
-                <button>
-                    <i className="fas fa-plus" />
+                <button id={`${id}-increment`} onClick={handleIncrease}>
+                    <i className="fa fa-plus" />
                 </button>
             </div>
         </div>

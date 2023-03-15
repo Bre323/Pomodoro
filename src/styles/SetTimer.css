@@ -1,0 +1,35 @@
+.timer-container {
+    margin: -20px 20px 50px
+}
+
+.timer-container h2 {
+    text-align: center;
+}
+
+.buttons-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttons-wrapper span {
+    font-size: 30px;
+    margin: 0 10px;
+}
+
+button {
+    background-color: transparent;
+    font-size: 20px;
+    color: #fff;
+    cursor: pointer;
+    margin: 10px;
+    padding: 5px 10px;
+}
+
+button:hover {
+    background-color: #111;
+}
+
+button:active {
+    background-color: #333;
+}
