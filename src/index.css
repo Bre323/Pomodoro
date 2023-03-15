@@ -3,3 +3,13 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(25, 25, 75);
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    min-height: 100vh;
+}
