@@ -1,5 +1,6 @@
 import React from "react";
 import SetTimer from "./components/SetTimer";
+import Clock from "./components/Clock"
 
 
 const App = () => {
@@ -34,6 +35,8 @@ const App = () => {
                 <SetTimer {...breakProps} />
                 <SetTimer {...sessionProps} />
             </div>
+
+            <Clock />
         </div>
     )
 }

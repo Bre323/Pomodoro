@@ -17,7 +17,7 @@
     margin: 0 10px;
 }
 
-button {
+.buttons-wrapper button {
     background-color: transparent;
     font-size: 20px;
     color: #fff;
@@ -26,10 +26,10 @@ button {
     padding: 5px 10px;
 }
 
-button:hover {
+.buttons-wrapper button:hover {
     background-color: #111;
 }
 
-button:active {
+.buttons-wrapper button:active {
     background-color: #333;
 }

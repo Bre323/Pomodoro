@@ -1,0 +1,31 @@
+.clock-container {
+    border: 2px solid white;
+    border-radius: 10px;
+    text-align: center;
+    padding: 15px;
+}
+
+.clock-container h1 {
+    margin-bottom: 20px;
+}
+
+.clock-container span {
+    font-size: 70px;
+}
+
+.clock-buttons button {
+    background-color: transparent;
+    font-size: 20px;
+    color: #fff;
+    cursor: pointer;
+    margin: 10px;
+    padding: 5px 10px;
+}
+
+.clock-buttons button:hover {
+    background-color: #111;
+}
+
+.clock-buttons button:active {
+    background-color: #333;
+}
