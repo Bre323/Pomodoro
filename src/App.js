@@ -19,7 +19,51 @@ class App extends React.Component {
     }
 
 
-    handlePlayPause = () => {}
+    componentWillUnmount() {
+        clearInterval(this.loop);
+    }
+
+
+    handlePlayPause = () => {
+        const { isPlaying } = this.state;
+
+        if(isPlaying) {
+            clearInterval(this.loop);
+
+            this.setState({
+                isPlaying: false
+            })
+        }
+
+        else {
+            this.setState({
+                isPlaying: true
+            })
+            
+            this.loop = setInterval(() => {
+                const { 
+                    clockCount,
+                    currentTimer, 
+                    breakCount, 
+                    sessionCount 
+                } = this.state;
+
+                if(clockCount === 0) {
+                    this.setState({
+                        currentTimer: (currentTimer === "Session") ? "Break" : "Session",
+                        clockCount: (currentTimer === "Session") ? (breakCount * 60) : (sessionCount * 60)
+                    })
+                    audio.play();
+                }
+                else {
+                    this.setState({
+                        clockCount: clockCount - 1
+                    })
+                }
+            }, 1000);
+        }
+    }
+
     handleReset = () => {}
     handleBreakDecrease = () => {}
     handleBreakIncrease = () => {}
