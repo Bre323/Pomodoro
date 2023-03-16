@@ -107,20 +107,43 @@ class App extends React.Component {
             currentTimer
         } = this.state;
 
-        if(!isPlaying && currentTimer === "Break") {
-            this.setState({
-                breakCount: breakCount + 1,
-                clockCount: (breakCount + 1) * 60
-            })
-        }
-        else {
-            this.setState({
-                breakCount: breakCount + 1
-            })
+        if(breakCount < 60) {
+            if(!isPlaying && currentTimer === "Break") {
+                this.setState({
+                    breakCount: breakCount + 1,
+                    clockCount: (breakCount + 1) * 60
+                })
+            }
+            else {
+                this.setState({
+                    breakCount: breakCount + 1
+                })
+            }
         }
     }
 
-    handleSessionDecrease = () => {}
+    handleSessionDecrease = () => {
+        const {
+            sessionCount,
+            isPlaying,
+            currentTimer
+        } = this.state;
+
+        if(sessionCount > 1) {
+            if(!isPlaying && currentTimer === "Session") {
+                this.setState({
+                    sessionCount: sessionCount - 1,
+                    clockCount: (sessionCount - 1) * 60
+                })
+            }
+            else {
+                this.setState({
+                    sessionCount: sessionCount - 1
+                })
+            }
+        }
+    }
+
     handleSessionIncrease = () => {}
 
     convertTime = (count) => {
