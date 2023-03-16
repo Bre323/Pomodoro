@@ -13,8 +13,8 @@ class App extends React.Component {
     state = {
         breakCount: 5,
         sessionCount: 25,
-        clockCount: 25 * 60,
-        currentTimer: "Session",
+        clockCount: 5 * 60,
+        currentTimer: "Break",
         isPlaying: false
     }
 
@@ -78,7 +78,28 @@ class App extends React.Component {
         audio.currentTime = 0;
     }
 
-    handleBreakDecrease = () => {}
+    handleBreakDecrease = () => {
+        const {
+            breakCount,
+            isPlaying,
+            currentTimer
+        } = this.state;
+
+        if(breakCount > 1) {
+            if(!isPlaying && currentTimer === "Break") {
+                this.setState({
+                    breakCount: breakCount - 1,
+                    clockCount: (breakCount - 1) * 60
+                })
+            }
+            else {
+                this.setState({
+                    breakCount: breakCount - 1
+                })
+            }
+        }
+    }
+
     handleBreakIncrease = () => {}
     handleSessionDecrease = () => {}
     handleSessionIncrease = () => {}
