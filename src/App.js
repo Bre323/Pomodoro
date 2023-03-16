@@ -144,7 +144,27 @@ class App extends React.Component {
         }
     }
 
-    handleSessionIncrease = () => {}
+    handleSessionIncrease = () => {
+        const {
+            sessionCount,
+            isPlaying,
+            currentTimer
+        } = this.state;
+
+        if(sessionCount < 60) {
+            if(!isPlaying && currentTimer === "Session") {
+                this.setState({
+                    sessionCount: sessionCount + 1,
+                    clockCount: (sessionCount + 1) * 60
+                })
+            }
+            else {
+                this.setState({
+                    sessionCount: sessionCount + 1
+                })
+            }
+        }
+    }
 
     convertTime = (count) => {
         let minutes = Math.floor(count / 60);
