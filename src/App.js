@@ -39,7 +39,7 @@ class App extends React.Component {
             this.setState({
                 isPlaying: true
             })
-            
+
             this.loop = setInterval(() => {
                 const { 
                     clockCount,
@@ -64,7 +64,20 @@ class App extends React.Component {
         }
     }
 
-    handleReset = () => {}
+    handleReset = () => {
+        this.setState({
+            breakCount: 5,
+            sessionCount: 25,
+            clockCount: 25 * 60,
+            currentTimer: "Session",
+            isPlaying: false
+        })
+        clearInterval(this.loop);
+
+        audio.pause();
+        audio.currentTime = 0;
+    }
+
     handleBreakDecrease = () => {}
     handleBreakIncrease = () => {}
     handleSessionDecrease = () => {}
