@@ -13,8 +13,8 @@ class App extends React.Component {
     state = {
         breakCount: 5,
         sessionCount: 25,
-        clockCount: 5 * 60,
-        currentTimer: "Break",
+        clockCount: 25 * 60,
+        currentTimer: "Session",
         isPlaying: false
     }
 
@@ -100,7 +100,26 @@ class App extends React.Component {
         }
     }
 
-    handleBreakIncrease = () => {}
+    handleBreakIncrease = () => {
+        const {
+            breakCount,
+            isPlaying,
+            currentTimer
+        } = this.state;
+
+        if(!isPlaying && currentTimer === "Break") {
+            this.setState({
+                breakCount: breakCount + 1,
+                clockCount: (breakCount + 1) * 60
+            })
+        }
+        else {
+            this.setState({
+                breakCount: breakCount + 1
+            })
+        }
+    }
+
     handleSessionDecrease = () => {}
     handleSessionIncrease = () => {}
 
