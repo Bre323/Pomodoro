@@ -18,7 +18,15 @@ const App = () => {
     const handleBreakIncrease = () => {}
     const handleSessionDecrease = () => {}
     const handleSessionIncrease = () => {}
-    const convertTime = (count) => {}
+
+    const convertTime = (count) => {
+        let minutes = Math.floor(count / 60);
+        let seconds  = count % 60;
+        minutes = minutes < 10 ? ("0" + minutes) : minutes;
+        seconds = seconds < 10 ? ("0" + seconds) : seconds;
+
+        return `${minutes}:${seconds}`;
+    }
 
 
     const breakProps = {
