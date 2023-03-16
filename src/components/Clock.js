@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/Clock.css";
 
-const Clock = ({ currentTimer, convertTime, clockCount, handlePlayPause, handleReset }) => {
+const Clock = ({ currentTimer, convertTime, clockCount, isPlaying, handlePlayPause, handleReset }) => {
     return (
         <div className="clock-container">
             <h1 id="timer-label">{currentTimer}</h1>
@@ -9,7 +9,7 @@ const Clock = ({ currentTimer, convertTime, clockCount, handlePlayPause, handleR
 
             <div className="clock-buttons">
                 <button id="start_stop" onClick={handlePlayPause}>
-                    <i className="fa fa-play" />
+                    <i className={`fa fa-${isPlaying ? `pause` : `play`}`} />
                 </button>
 
                 <button id="reset" onClick={handleReset}>
