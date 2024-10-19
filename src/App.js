@@ -27,7 +27,7 @@ class App extends React.Component {
     handlePlayPause = () => {
         const { isPlaying } = this.state;
 
-        if(isPlaying) {
+        if(isPlaying === true) {
             clearInterval(this.loop);
 
             this.setState({
@@ -86,7 +86,7 @@ class App extends React.Component {
         } = this.state;
 
         if(breakCount > 1) {
-            if(!isPlaying && currentTimer === "Break") {
+            if(isPlaying === false && currentTimer === "Break") {
                 this.setState({
                     breakCount: breakCount - 1,
                     clockCount: (breakCount - 1) * 60
@@ -108,7 +108,7 @@ class App extends React.Component {
         } = this.state;
 
         if(breakCount < 60) {
-            if(!isPlaying && currentTimer === "Break") {
+            if(isPlaying === false && currentTimer === "Break") {
                 this.setState({
                     breakCount: breakCount + 1,
                     clockCount: (breakCount + 1) * 60
@@ -130,7 +130,7 @@ class App extends React.Component {
         } = this.state;
 
         if(sessionCount > 1) {
-            if(!isPlaying && currentTimer === "Session") {
+            if(isPlaying === false && currentTimer === "Session") {
                 this.setState({
                     sessionCount: sessionCount - 1,
                     clockCount: (sessionCount - 1) * 60
@@ -152,7 +152,7 @@ class App extends React.Component {
         } = this.state;
 
         if(sessionCount < 60) {
-            if(!isPlaying && currentTimer === "Session") {
+            if(isPlaying === false && currentTimer === "Session") {
                 this.setState({
                     sessionCount: sessionCount + 1,
                     clockCount: (sessionCount + 1) * 60
